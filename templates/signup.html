@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mx-auto mt-5"><!--mt=margin to,mx-auto means it gets to center-->
+<h2>Create an Account </h2>
+</div>
+<div class="container">
+    <form class="row g-3" action="#" method="post">
+        {% csrf_token %}
+        <!--adding error or sucess msg aler in div with ifonly excuted when there is need -->
+        {% if message %}
+        <div class="alert alert-success" role="alert">
+            {{message}}
+        </div>
+        {% endif %}
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{error}}
+        </div>
+        {% endif %}
+        <div class="col-md-6">
+            <label for="" class="form-label">Full Name</label>
+            <input required type="text" value="{{value.fullname}}"class="form-control" name="fullname">
+          </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input required type="email" value="{{value.email}}"class="form-control" name="email">
+        </div>
+        <div class="col-md-6">
+          <label for="" class="form-label">Password</label>
+          <input required type="password"  class="form-control" name="password">
+        </div>
+        <div class="col-md-6">
+            <label for="" class="form-label">Password Again</label>
+            <input required type="password" class="form-control" name="passwordagain">
+          </div>
+        <div class="col-md-6">
+            <label for="" class="form-label">Phone Number</label>
+            <input required type="text" value="{{value.phoneno}}" class="form-control" name="phoneno">
+          </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input required type="text" value="{{value.city}}" class="form-control" name="city">
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Create an account</button>
+        </div>
+      </form>
+</div>
+{% endblock %}

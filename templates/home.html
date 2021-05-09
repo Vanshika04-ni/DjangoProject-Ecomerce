@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container-fluid mt-5">
+  <!---row class in bootstrap for items in rows otherwise will shown in coloumn-->
+<div class="row">
+  <!--filter-->
+<div class="col-lg-3 mx-auto">
+  <div class="list-group">
+    {% for category in categories %}
+    <!--/?category={{category.id}} query set url for getting filter categories wise-->
+    <a href="/?category={{category.id}}" class="list-group-item list-group-item">
+    <b>{{category.name}}</b>
+    </a>
+    {% endfor %}
+  </div>
+<!--col-log-3 means out of 12 rows 3applied-->
+</div>
+
+  <!--Products-->
+  <div id="product" class="col-lg-9 mx-auto">
+    <div class="row mx-auto">
+      {% for product in products %}
+      <div class="card mx-auto mb-5" style="width: 18rem;">
+          <img class="thumbnail" src="{{product.imageURL}}"width="150px" height="170px">
+          <div class="card-body ">
+            <h5 class="card-title"><b>Product:{{product.name}}</b></h5>
+            <p class="card-text"><h6><b>Price:{{product.price}}Rs</b></h6></p>
+            <a  href="/addtocart/{{product.id}}" id="qv{{product.id}}" class="btn btn-success cart">Add to cart</a>
+          <a  href="/view/{{product.id}}" id="qv{{product.id}}" class="btn btn-success cart">View</a>
+          </div>
+      </div>
+      {% endfor %}
+  </div> 
+</div>
+</div>
+</div>
+{% endblock %}

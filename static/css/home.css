@@ -1,0 +1,24 @@
+.bg-dark{
+    background-color: #1b978d!important;
+}
+
+
+
+.btn-success{
+	border-radius: 0;
+    margin-right: 25px;
+    background-color: rgb(55, 177, 65);
+
+}
+
+h2{
+    color: rgb(182, 26, 39);
+}
+
+h6{
+    color:red;
+}
+
+h5{
+    color: rgb(73, 138, 129);
+}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for product in products %}
+<div class="card mx-auto mb-5 mt-5" style="width: 18rem;">
+        <img class="thumbnail" src="{{product.imageURL}}"width="250px" height="340px">
+          <div class="card-body ">
+            <h5 class="card-title"><h5><b>Product:{{product.name}}</b></h5>
+            <p class="card-text"><h6><b>Price:{{product.price}}Rs</b></h6></p>
+            <p class="card-text"><h5><b>Category:{{product.category.name}}</b></h5></p>
+            <a  href="/addtocart/{{product.id}}" id="qv{{product.id}}" class="btn btn-success">Add to cart</a>
+
+          </div>
+          
+{% endfor%}
+
+
+{% endblock %}
